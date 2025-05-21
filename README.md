@@ -23,4 +23,8 @@ Just open `CHATBOT.html` in any web browser.
 ---
 
 ## 📦 Files
+chatbot-website/
+├── index.html
+├── style.css
+└── script.js
 
