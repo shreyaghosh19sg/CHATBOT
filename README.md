@@ -6,7 +6,7 @@ A basic chatbot implemented in JavaScript, inspired by the original Java console
 
 ## 🌐 Live Preview
 
-Just open `CHATBOT.html` in any web browser.
+Just open `file:///D:/JAVA/index.html` in any web browser.
 
 ---
 
