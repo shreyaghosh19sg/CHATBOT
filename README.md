@@ -6,7 +6,7 @@ A basic chatbot implemented in JavaScript, inspired by the original Java console
 
 ## 🌐 Live Preview
 
-Just open `file:///D:/JAVA/index.html` in any web browser.
+https://codepen.io/ShreyaGhosh2002/pen/jEEgbzN
 
 ---
 
