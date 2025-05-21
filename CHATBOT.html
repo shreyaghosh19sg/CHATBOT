@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8f0fe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .chat-container {
+      background: #fff;
+      width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    .messages {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .message {
+      margin: 5px 0;
+    }
+    .user {
+      text-align: right;
+      color: blue;
+    }
+    .bot {
+      text-align: left;
+      color: green;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+    }
+    button {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <h2>JavaScript Chatbot</h2>
+  <div class="messages" id="chatMessages"></div>
+  <input type="text" id="userInput" placeholder="Type your message..." />
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+  function getResponse(input) {
+    input = input.toLowerCase();
+    if (input.includes("hello") || input.includes("hi")) {
+      return "Hello! How can I assist you today?";
+    } else if (input.includes("how are you")) {
+      return "I'm just a program, but I'm doing great! Thanks for asking.";
+    } else if (input.includes("what is your name")) {
+      return "I am your friendly JavaScript Chatbot.";
+    } else if (input.includes("help")) {
+      return "I can answer simple questions or chat with you!";
+    } else if (input.includes("weather")) {
+      return "I can't check the weather yet, but maybe soon!";
+    } else if (input.includes("bye") || input.includes("exit")) {
+      return "Goodbye! Have a nice day!";
+    } else {
+      return "Sorry, I don't understand. Can you try asking differently?";
+    }
+  }
+
+  function sendMessage() {
+    const inputBox = document.getElementById("userInput");
+    const input = inputBox.value.trim();
+    if (!input) return;
+
+    const chat = document.getElementById("chatMessages");
+
+    // Display user message
+    const userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.textContent = "You: " + input;
+    chat.appendChild(userMsg);
+
+    // Get and display bot response
+    const response = getResponse(input);
+    const botMsg = document.createElement("div");
+    botMsg.className = "message bot";
+    botMsg.textContent = "Bot: " + response;
+    chat.appendChild(botMsg);
+
+    chat.scrollTop = chat.scrollHeight;
+    inputBox.value = "";
+
+    if (input.toLowerCase().includes("bye") || input.toLowerCase().includes("exit")) {
+      inputBox.disabled = true;
+    }
+  }
+</script>
+
+</body>
+</html>
